@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Under Construction</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="construction-page">
+      <section class="wood-sign" aria-live="polite">
+        <p class="sign-kicker">Ecosystem</p>
+        <h1 id="placeName">Under Construction</h1>
+        <p>This part of the map is under construction.</p>
+        <button type="button" onclick="history.length > 1 ? history.back() : location.href='index.html'">Return to the map</button>
+      </section>
+    </main>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const place = params.get("place") || "This ecosystem";
+      document.title = `${place} | Under Construction`;
+      document.querySelector("#placeName").textContent = place;
+    </script>
+  </body>
+</html>

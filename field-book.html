@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fear Woods Field Book</title>
+    <link rel="stylesheet" href="field-book.css">
+  </head>
+  <body>
+    <main class="field-book-shell">
+      <header class="field-book-header">
+        <h1>Fear Woods Field Book</h1>
+        <p>Record what fear is showing you, what courage is teaching you, and what wisdom is helping you carry differently.</p>
+      </header>
+
+      <section class="field-book-grid" aria-label="Fear Woods Field Book entry workspace">
+        <aside class="side-panel">
+          <h2>Fear Woods Locations</h2>
+          <div id="locationButtons" class="location-list"></div>
+
+          <div class="entry-info">
+            <h2>Entry Information</h2>
+            <label>
+              Date
+              <input id="entryDate" type="date">
+            </label>
+            <label>
+              Location
+              <select id="entryLocation"></select>
+            </label>
+            <label>
+              Entry Type
+              <select id="entryType">
+                <option value="">Choose type</option>
+                <option value="Trail Note">Trail Note</option>
+                <option value="Field Note">Field Note</option>
+              </select>
+            </label>
+          </div>
+        </aside>
+
+        <section class="entry-page">
+          <div class="entry-title">
+            <span>Explorer's Entry Note</span>
+            <strong id="contextLine">Choose a location to begin</strong>
+          </div>
+
+          <div class="type-toggle" role="group" aria-label="Entry type">
+            <button id="trailType" type="button" data-type="Trail Note">Trail Note</button>
+            <button id="fieldType" type="button" data-type="Field Note">Field Note</button>
+          </div>
+
+          <div class="writing-wrap" data-disabled="true">
+            <div class="toolbar" aria-label="Formatting toolbar">
+              <button type="button" data-command="bold" aria-label="Bold">B</button>
+              <button type="button" data-command="italic" aria-label="Italic"><i>I</i></button>
+              <button type="button" data-command="insertUnorderedList" aria-label="Bulleted list">•</button>
+              <button type="button" data-command="createLink" aria-label="Add link">Link</button>
+              <button type="button" data-command="removeFormat" aria-label="Clear formatting">Tx</button>
+            </div>
+            <div id="editor" class="editor" contenteditable="false" role="textbox" aria-multiline="true" data-placeholder="Write your entry here..."></div>
+          </div>
+
+          <p id="statusMessage" class="status-message">Choose Location → Choose Trail or Field Note → Date fills in → Write or paste entry.</p>
+
+          <div class="entry-actions">
+            <button id="lookBack" type="button">Looking Back</button>
+            <button id="moveForward" type="button">Moving Forward</button>
+            <button id="saveEntry" type="button">Save Entry</button>
+            <button id="newEntry" type="button">New Entry</button>
+            <button id="returnBook" type="button">Return to the Trail</button>
+          </div>
+        </section>
+
+        <aside class="side-panel type-panel">
+          <h2>Entry Types</h2>
+          <article>
+            <h3>Trail Note</h3>
+            <p>Capture what the trail revealed: what you practiced, noticed, questioned, or discovered while exploring Fear Woods.</p>
+          </article>
+          <article>
+            <h3>Field Note</h3>
+            <p>Carry the woods into real life: record what you practiced, noticed, questioned, or discovered beyond the trail.</p>
+          </article>
+        </aside>
+      </section>
+    </main>
+    <script src="field-book.js"></script>
+  </body>
+</html>

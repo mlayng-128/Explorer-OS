@@ -1,0 +1,78 @@
+:root {
+  color-scheme: dark;
+  --focus: rgba(255, 211, 117, 0.95);
+  --glow: rgba(255, 178, 72, 0.3);
+  --paper: #d7b571;
+  --ink: #23170d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #080704;
+  color: #f3e4c0;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+button {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.image-stage {
+  position: relative;
+  width: min(100vw, calc(100vh * var(--image-ratio)));
+  margin: 0 auto;
+}
+
+.page-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+}
+
+.hotspot-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.hotspot {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hotspot::after {
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  content: "";
+  opacity: 0;
+  box-shadow: 0 0 0 2px var(--focus), 0 0 28px 10px var(--glow);
+  transition: opacity 160ms ease;
+}
+
+.hotspot:hover::after,
+.hotspot:focus-visible::after {
+  opacity: 1;
+}
+
+.hotspot:focus-visible {
+  outline: none;
+}

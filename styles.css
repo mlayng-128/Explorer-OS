@@ -1,0 +1,167 @@
+:root {
+  color-scheme: dark;
+  --focus: rgba(255, 214, 126, 0.95);
+  --glow: rgba(255, 174, 64, 0.38);
+  --paper: #e5c98b;
+  --ink: #20150c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #070604;
+  color: #f5e5c1;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.image-page {
+  position: relative;
+  width: min(100vw, calc(100vh * var(--image-ratio)));
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.full-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.hotspot-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.hotspot {
+  position: absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  width: calc(var(--w) * 1%);
+  height: calc(var(--h) * 1%);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.hotspot::after {
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  content: "";
+  opacity: 0;
+  box-shadow: 0 0 0 2px var(--focus), 0 0 28px 10px var(--glow);
+  transition: opacity 160ms ease;
+}
+
+.hotspot:hover::after,
+.hotspot:focus-visible::after {
+  opacity: 1;
+}
+
+.hotspot:focus-visible {
+  outline: none;
+}
+
+.entry-page {
+  display: grid;
+}
+
+.entry-page > * {
+  grid-area: 1 / 1;
+}
+
+.enter-button,
+.audio-fallback {
+  place-self: end center;
+  margin-bottom: clamp(28px, 6vw, 64px);
+  min-width: 150px;
+  border: 1px solid rgba(255, 219, 139, 0.85);
+  border-radius: 999px;
+  padding: 13px 28px;
+  background: rgba(33, 21, 9, 0.82);
+  color: #ffe7ad;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 0 30px rgba(255, 180, 69, 0.3), inset 0 0 18px rgba(255, 213, 129, 0.1);
+  cursor: pointer;
+}
+
+.enter-button {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.enter-button.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.audio-fallback {
+  place-self: start center;
+  margin-top: 18px;
+  font-size: 0.95rem;
+}
+
+.construction-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(rgba(8, 7, 4, 0.28), rgba(8, 7, 4, 0.78)),
+    url("assets/explorers-map.png") center / cover;
+}
+
+.wood-sign {
+  width: min(560px, 100%);
+  border: 4px solid #6e4824;
+  border-radius: 8px;
+  padding: clamp(28px, 6vw, 48px);
+  background:
+    linear-gradient(90deg, rgba(52, 32, 15, 0.35), transparent 18%, rgba(255, 225, 155, 0.12) 52%, rgba(42, 26, 12, 0.3)),
+    #8a5d2f;
+  color: #fff0bf;
+  text-align: center;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55), inset 0 0 0 2px rgba(255, 222, 151, 0.22);
+}
+
+.wood-sign h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  line-height: 1;
+}
+
+.wood-sign p {
+  margin: 0 0 22px;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+}
+
+.sign-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ffe0a0;
+}
+
+.wood-sign button {
+  min-height: 44px;
+  border: 1px solid #f2d08b;
+  border-radius: 6px;
+  padding: 10px 16px;
+  background: #211509;
+  color: #ffe4ad;
+  cursor: pointer;
+}

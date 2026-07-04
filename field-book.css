@@ -1,0 +1,276 @@
+:root {
+  color-scheme: dark;
+  --green: #182817;
+  --green-2: #223c1d;
+  --gold: #d8a84f;
+  --paper: #ecd6a3;
+  --paper-2: #f5e5bd;
+  --ink: #27190d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    linear-gradient(rgba(5, 5, 3, 0.58), rgba(5, 5, 3, 0.72)),
+    url("assets/fear-woods-field-book-bg.png") center / cover fixed;
+  color: #f6e4bc;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.field-book-shell {
+  min-height: 100vh;
+  padding: clamp(16px, 2vw, 28px);
+}
+
+.field-book-header {
+  max-width: 960px;
+  margin: 0 auto 18px;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
+}
+
+.field-book-header h1 {
+  margin: 0;
+  color: #f6d28b;
+  font-size: clamp(2.1rem, 5vw, 4.6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.field-book-header p {
+  margin: 10px auto 0;
+  max-width: 62ch;
+  color: #f5c86f;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.35;
+}
+
+.field-book-grid {
+  width: min(1480px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(420px, 1fr) minmax(220px, 280px);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.side-panel,
+.entry-page {
+  border: 1px solid rgba(221, 170, 83, 0.55);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.46), inset 0 0 0 1px rgba(255, 231, 176, 0.08);
+}
+
+.side-panel {
+  padding: 18px;
+  background: rgba(10, 24, 18, 0.9);
+}
+
+.side-panel h2 {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 1.18rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.location-list {
+  display: grid;
+  gap: 7px;
+}
+
+.location-list button,
+.type-toggle button,
+.entry-actions button {
+  min-height: 42px;
+  border: 1px solid rgba(219, 173, 88, 0.55);
+  border-radius: 6px;
+  background: rgba(22, 31, 20, 0.92);
+  color: #f6e4bc;
+  cursor: pointer;
+}
+
+.location-list button {
+  width: 100%;
+  padding: 9px 10px;
+  text-align: left;
+}
+
+.location-list button.is-active,
+.type-toggle button.is-active {
+  background: #4f681f;
+  color: #fff3c7;
+}
+
+.entry-info {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(216, 168, 79, 0.32);
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  margin-top: 11px;
+  color: #f8dfaa;
+}
+
+input,
+select {
+  min-height: 38px;
+  width: 100%;
+  border: 1px solid rgba(91, 60, 27, 0.7);
+  border-radius: 5px;
+  padding: 8px 10px;
+  background: rgba(245, 229, 189, 0.96);
+  color: var(--ink);
+}
+
+.entry-page {
+  padding: clamp(18px, 3vw, 34px);
+  background:
+    linear-gradient(rgba(255, 246, 219, 0.88), rgba(235, 204, 143, 0.92)),
+    var(--paper);
+  color: var(--ink);
+}
+
+.entry-title {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.entry-title span {
+  font-size: clamp(1.8rem, 4vw, 3.1rem);
+  font-weight: 700;
+}
+
+.entry-title strong {
+  min-height: 1.3em;
+  color: #604018;
+  font-size: 1rem;
+}
+
+.type-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: min(420px, 100%);
+  margin: 0 auto 16px;
+}
+
+.writing-wrap {
+  border: 1px solid rgba(91, 60, 27, 0.45);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 244, 214, 0.7);
+}
+
+.writing-wrap[data-disabled="true"] {
+  opacity: 0.62;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+  border-bottom: 1px solid rgba(91, 60, 27, 0.28);
+}
+
+.toolbar button {
+  min-width: 38px;
+  min-height: 34px;
+  border: 0;
+  border-radius: 5px;
+  background: rgba(85, 57, 24, 0.12);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.editor {
+  min-height: clamp(260px, 44vh, 520px);
+  padding: 18px;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  outline: none;
+}
+
+.editor:empty::before {
+  content: attr(data-placeholder);
+  color: rgba(39, 25, 13, 0.58);
+  font-style: italic;
+}
+
+.status-message {
+  min-height: 1.5em;
+  margin: 12px 0 18px;
+  color: #583916;
+}
+
+.entry-actions {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.entry-actions button {
+  background: #2c1c0e;
+}
+
+.type-panel {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.type-panel article {
+  border: 1px solid rgba(216, 168, 79, 0.4);
+  border-radius: 8px;
+  padding: 16px;
+  background: rgba(236, 214, 163, 0.96);
+  color: var(--ink);
+}
+
+.type-panel h3 {
+  margin: 0 0 10px;
+  color: #5f4119;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+}
+
+.type-panel p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.42;
+}
+
+@media (max-width: 980px) {
+  .field-book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .entry-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .entry-actions button:last-child {
+    grid-column: 1 / -1;
+  }
+}
